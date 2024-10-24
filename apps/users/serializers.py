@@ -5,7 +5,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'age', 'direction', 'email', 'phone', 'balance']
+        fields = ['id', 'username', 'age', 'direction', 'email', 'phone', 'balance', 'wallet']
 
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=20, write_only=True)
@@ -21,7 +21,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if len(attrs['password']) < 8:
             raise serializers.ValidationError({'password': "Не менее 8 символов"})
         if '+996' not in attrs['phone']:
-            raise serializers.ValidationError({'phone': "Номер не соответствует номерам КР"})
+            raise serializers.ValidationError({'phone': "Номер телефона должен быть в формате +996XXXXXXXXX"})
         return attrs
 
     def create(self, validated_data):

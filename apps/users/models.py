@@ -22,6 +22,13 @@ class User(AbstractUser):
         verbose_name='Коины',
         blank = True, null= True,
     )
+    wallet = models.CharField(
+        max_length=15,
+        verbose_name='Кошелёк',
+        unique=True,
+        blank = True, 
+        null= True,
+    )
 
     def __str__(self):
         return self.username

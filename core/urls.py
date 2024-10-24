@@ -38,9 +38,15 @@ schema_view = get_schema_view(
 )
 
 
+api_urlpatterns = [
+    path('users/', include('apps.users.urls')),
+    path('transaction/', include('apps.transaction.urls')),
+]
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/users/', include("apps.users.urls")),
+    path('api/v1/', include(api_urlpatterns)),
 
     # yasq
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

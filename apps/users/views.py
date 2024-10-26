@@ -4,6 +4,7 @@ from rest_framework.viewsets import GenericViewSet
 from .models import User
 from .serializers import UserSerializer, UserRegisterSerializer
 from .permissions import UserPermissions
+from rest_framework.response import Response
 
 class UserAPIViewSet(GenericViewSet,
                      mixins.ListModelMixin,

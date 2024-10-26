@@ -31,7 +31,7 @@ class User(AbstractUser):
     )
 
     def __str__(self):
-        return self.username
+        return self.direction
     
     class Meta:
         verbose_name="Пользователи"

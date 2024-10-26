@@ -11,7 +11,7 @@ class Transactions(models.Model):
     amount = models.IntegerField(verbose_name = "Кол-во Coins")
 
     def __str__(self) -> str:
-        return self.from_user
+        return "Транзакция"
 
     class Meta:
         verbose_name = 'Транзакии'
